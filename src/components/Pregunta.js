@@ -1,13 +1,13 @@
 import React, { Fragment, useState } from "react";
 import Error from './Error';
 
-export default function Pregunta({guardarPresupuesto, guardarRestante}) {
+export default function Pregunta({guardarPresupuesto, guardarRestante, actualizarPregunta}) {
 
     // Definir el State
     const [ cantidad, guardarCantidad ] = useState(0);
     const [ error, guardarError ] = useState(false);
     
-    // Submit para defi ir el presupuesto
+    // Submit para definir el presupuesto
     const agregarPresupuesto = e => {
       e.preventDefault();
       // Validar
@@ -20,6 +20,7 @@ export default function Pregunta({guardarPresupuesto, guardarRestante}) {
       guardarError(false);
       guardarPresupuesto(cantidad);
       guardarRestante(cantidad);
+      actualizarPregunta(false);
     }
 
   return (
